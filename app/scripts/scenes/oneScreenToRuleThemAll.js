@@ -1,5 +1,6 @@
 Crafty.scene('oneScreenToRuleThemAll', function() {
-    Crafty.bind("cardSelected", function(){
+    Crafty.bind("cardSelected", function(newCard){
+        console.log(newCard);
         var selectedCards = Crafty("SelectedCard");
         console.log(selectedCards.length);
         if(selectedCards.length>1){
@@ -9,7 +10,9 @@ Crafty.scene('oneScreenToRuleThemAll', function() {
             } else{
                 selectedCards.each(
                     function(){
-                        this.deselect();
+                        if(this!=newCard){
+                            this.deselect();
+                        }
                     })
                     }
         }

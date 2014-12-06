@@ -18,7 +18,7 @@ Crafty.c('card', {
           
           this.addComponent("SelectedCard");
           this.removeComponent("UnmatchedCard");
-          Crafty.trigger("cardSelected");
+          Crafty.trigger("cardSelected", this);
       });
   },
   layoutOnGrid:function(x,y){

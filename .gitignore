@@ -27,3 +27,4 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 .tmp/
+app/bower_components/midi-soundfonts/FluidR3_GM/

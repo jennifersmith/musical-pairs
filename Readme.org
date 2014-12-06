@@ -2,7 +2,7 @@
 
 * Progress
 
-** Pomodoro 1
+** Pomodoro 1 - Saturday PM
 
 I bootstrapped with yeoman and beginning to work on the first part -
 that is getting some squares to appear on the screen. I forgot a lot
@@ -13,3 +13,36 @@ Identified a few admin tasks like doing an 'im in' post and also
 putting on a license. I don't feel like doing these just yet.
 
 
+** Pomodoro 2 - Saturday PM
+
+I managed to get to lay out 9 cards on a grid (which was great until I
+remembered pairs is better usually with an even number).
+
+I managed to get a basic wav sound playing but that was a bit crap.
+
+
+** Unstructed noodling - Saturday Evening and Sunday Morning
+
+Some idling around and non-structured time in the evening and this
+morning. I now have a game that is relatively playable. That is, you
+click something and it will play a sound and be selected.
+
+When you click something with the same sound then it will pair these
+two off. 
+
+I want to spend some time tidying up the code as I feel it is going to
+be hard to extend it the way it is. Namely:
+
+- lots of weird if-branching in the "CardSelected" screen
+- the delay was the only way to get states transitioning nicely 
+- what is the role of a 'model' component right now?
+- Using components for state transitions is a good thing?
+
+Some other puzzles I have about the specifics of allowing soundfonts
+in my game. I kinda hope that's OK. I figure it's the same thing as
+using something like Ableton and built in midi right? Currently using
+a basic piano sound, MIT licensed etc.
+
+After I tidy up a bit, I want to work on a basic game flow... that is,
+make the game winnable and restartable. Then there are some more ideas
+but let's just focus on that for now.

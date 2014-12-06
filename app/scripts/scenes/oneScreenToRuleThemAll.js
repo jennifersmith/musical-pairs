@@ -1,10 +1,11 @@
 Crafty.scene('oneScreenToRuleThemAll', function() {
     Crafty.bind("cardSelected", function(){
         var selectedCards = Crafty("SelectedCard");
+        console.log(selectedCards.length);
         if(selectedCards.length>1){
             selectedNotes = _.pluck(selectedCards.get(), "_note");
             if(_.uniq(selectedNotes).length==1){
-                selectedCards.each(function(){this.gravity();});
+                selectedCards.each(function(){this.matched();});
             } else{
                 selectedCards.each(
                     function(){

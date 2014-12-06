@@ -7,8 +7,7 @@ Crafty.c('card', {
   _placeholder: "..",
    
   init: function() {
-      this.requires("2D, Canvas, Color, Polygon, Mouse, Delay");
-      this.color("#FF0000");
+      this.requires("2D, Canvas, Color, Polygon, Mouse, Delay, UnmatchedCard");
       this.bind('Click', function(MouseEvent){
 	  var delay = 0; // play one note every quarter second
 	  var velocity = 127; // how hard the note hits
@@ -18,6 +17,8 @@ Crafty.c('card', {
 	  MIDI.noteOff(0, this._note, delay + 0.75);
           
           this.addComponent("SelectedCard");
+          this.removeComponent("UnmatchedCard");
+          Crafty.trigger("cardSelected");
       });
   },
   layoutOnGrid:function(x,y){
@@ -28,8 +29,13 @@ Crafty.c('card', {
   deselect: function(){
       this.delay(function(){
           this.removeComponent("SelectedCard");
-          this.color("#FF0000");
-          }, 1000,0);
+          this.addComponent("UnmatchedCard");          
+          }, 100,0);
+  },
+
+  matched: function(){
+      this.removeComponent("SelectedCard");
+      this.addComponent("MatchedCard");
   },
 
   remove: function (entityDestroyed) {

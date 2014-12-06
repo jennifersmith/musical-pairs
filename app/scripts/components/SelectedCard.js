@@ -1,11 +1,8 @@
 Crafty.c('SelectedCard', {
 
-  _placeholder: "..",
-
     init: function() {
-        this.requires("Card, Color, Gravity");
+        this.requires("Card, Color");
         this.color("#674458")
-        Crafty.trigger("cardSelected");
     },
 
   remove: function (entityDestroyed) {

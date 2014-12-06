@@ -2,12 +2,11 @@ Crafty.c('SelectedCard', {
 
   _placeholder: "..",
 
-  init: function() {
-    // called when this component is added to an entity
-    this.requires("Card, Color, Gravity");
-      this.color("#674458")
-      Crafty.trigger("cardSelected");
-  },
+    init: function() {
+        this.requires("Card, Color, Gravity");
+        this.color("#674458")
+        Crafty.trigger("cardSelected");
+    },
 
   remove: function (entityDestroyed) {
     // called just before this component is removed
@@ -15,8 +14,7 @@ Crafty.c('SelectedCard', {
   },
 
   // constructor
-  selectedcard: function(placeholder) {
-    this.placeholder = placeholder;
+  selectedcard: function() {
 
     return this;
   }

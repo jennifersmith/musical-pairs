@@ -20,12 +20,6 @@ Crafty.c('card', {
           this.addComponent("SelectedCard");
       });
   },
-  note:function(n){
-      this._note = n;
-  },
-  getNote:function(){
-      return this._note
-      },
   layoutOnGrid:function(x,y){
       this.attr({w: this._width, h: this._height, x: (x* (this._width + this._padding)) + 50, y: (this._height + this._padding) * y});
       return this;
@@ -44,8 +38,9 @@ Crafty.c('card', {
   },
 
   // constructor
-  card: function(placeholder) {
-    this.placeholder = placeholder;
+  card: function(data) {
+      
+    this._note = data.note;
 
     return this;
   }

@@ -1,0 +1,15 @@
+#+TITLE: Musical Pairs
+
+* Progress
+
+** Pomodoro 1
+
+I bootstrapped with yeoman and beginning to work on the first part -
+that is getting some squares to appear on the screen. I forgot a lot
+of what I learnt about crafty last time so this feels slow
+going. Maybe I will warm up.
+
+Identified a few admin tasks like doing an 'im in' post and also
+putting on a license. I don't feel like doing these just yet.
+
+

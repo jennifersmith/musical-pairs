@@ -59,7 +59,7 @@
             isNumber = function(filter){return !isNaN(parseFloat(filter)) && isFinite(filter)};
 
         isID = isNumber(filter);
-
+        console.log(isID);
         // Save ids of single or many components.
         if (isID) {
             e = Crafty(parseInt(filter));
@@ -77,13 +77,14 @@
             }
         } else if (filter == '*') {
             var es = Crafty('*'), count = 0;
-            for (en in es) {
-                if (es.hasOwnProperty(en) && typeof es[en] == "object") { 
-                    e = es[en];
+            
+            for (var i = 0; i < es.length; i++) {
+                console.log(es[i]);
+                    e = Crafty(es[i]);
                     if (count++ < 50) {
                         entities.push({ id: e[0], e: e });
                     }
-                }
+
             };
         }
 

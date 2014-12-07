@@ -1,21 +1,19 @@
 Crafty.scene('oneScreenToRuleThemAll', function() {
     Crafty.bind("cardSelected", function(newCard){
-        console.log(newCard);
+
+        var clickedNote = newCard._note;
         var selectedCards = Crafty("SelectedCard");
-        console.log(selectedCards.length);
-        if(selectedCards.length>1){
-            selectedNotes = _.pluck(selectedCards.get(), "_note");
-            if(_.uniq(selectedNotes).length==1){
-                selectedCards.each(function(){this.matched();});
-            } else{
-                selectedCards.each(
-                    function(){
-                        if(this!=newCard){
-                            this.deselect();
-                        }
-                    })
-                    }
+        var selectedNotes = _.pluck(selectedCards.get(), "_note")[0];
+        
+        if(selectedNotes == clickedNote){
+            selectedCards.each(function(){this.match()});
+            newCard.match();
+        } else {
+            selectedCards.each(function(){this.deselect()});
+            newCard.select();
         }
+        return;
+
     });
     
     var possibleNotes = [60,64,67,72];

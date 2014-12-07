@@ -15,9 +15,6 @@ Crafty.c('card', {
 	  MIDI.setVolume(0, 127);
 	  MIDI.noteOn(0, this._note, velocity, delay);
 	  MIDI.noteOff(0, this._note, delay + 0.75);
-          
-          this.addComponent("SelectedCard");
-          this.removeComponent("UnmatchedCard");
           Crafty.trigger("cardSelected", this);
       });
   },
@@ -33,7 +30,11 @@ Crafty.c('card', {
           }, 100,0);
   },
 
-  matched: function(){
+  select: function (){
+      this.addComponent("SelectedCard");
+      this.removeComponent("UnmatchedCard");
+  },
+  match: function(){
       this.removeComponent("SelectedCard");
       this.addComponent("MatchedCard");
   },

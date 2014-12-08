@@ -1,13 +1,12 @@
-Crafty.c('MatchedCard', {
+Crafty.c('Ledge', {
+
+  _placeholder: "..",
 
   init: function() {
     // called when this component is added to an entity
-    this.requires("Gravity,Color,Collision");
-    this.color("#012249");
-    this.gravity();
-    this.onHit("Ledge", function(){
-        this.play();
-        });
+    this.requires("2D, Canvas, Color, Polygon,Collision");
+    this.color("#404040");
+    this.attr({x:0, y:350, w:800, h:20});
   },
 
   remove: function (entityDestroyed) {
@@ -16,7 +15,7 @@ Crafty.c('MatchedCard', {
   },
 
   // constructor
-  matchedcard: function(placeholder) {
+  ledge: function(placeholder) {
     this.placeholder = placeholder;
 
     return this;

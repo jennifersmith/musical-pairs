@@ -25,8 +25,11 @@ var Game = {
 
 MIDI.loadPlugin({
 		soundfontUrl: "/bower_components/midi-soundfonts/FluidR3_GM/",
-		instrument: "acoustic_grand_piano",
+		instruments: ["acoustic_grand_piano", "synth_drum"],
 		callback: function() {
+                          MIDI.programChange(0, 0);
+      MIDI.programChange(1, 118);
+
                     Game.start();
 		}
 	});

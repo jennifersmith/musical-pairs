@@ -52,7 +52,21 @@ Crafty.c('card', {
 	  MIDI.noteOn(0, this._note, velocity, delay);
 	  MIDI.noteOff(0, this._note, delay + 0.75);
 
+      },
+
+  playHit: function(){
+      	  var delay = 0; // play one note every quarter second
+	  var velocity = 127; // how hard the note hits
+	  // play the note
+	  MIDI.setVolume(0, 127);
+	  MIDI.noteOn(1, 60, velocity, delay);
+	  MIDI.noteOn(1, 60, velocity, delay+0.1);
+	  MIDI.noteOn(1, 60, velocity, delay+0.2);
+	  MIDI.noteOn(1, 60, velocity, delay+0.4);
+//	  MIDI.noteOff(1, 60, delay + 0.75);
+
       }
+
 
 });
 

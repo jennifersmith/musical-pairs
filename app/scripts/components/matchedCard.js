@@ -2,8 +2,12 @@ Crafty.c('MatchedCard', {
 
   init: function() {
     // called when this component is added to an entity
-    this.requires("Gravity,Color,Collision");
-    this.color("#012249");
+    this.requires("Gravity,Color,Collision,Tween,Delay");
+    this.color("#674458");
+    this.attr({alpha:1.0})
+          .tween({alpha:0.4}, 10);
+    this.delay(function(){this.playHit()}, 10);
+
    },
 
   fall: function(){

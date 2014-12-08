@@ -4,13 +4,17 @@ Crafty.c('MatchedCard', {
     // called when this component is added to an entity
     this.requires("Gravity,Color,Collision");
     this.color("#012249");
-    this.gravity();
-    this.onHit("Ledge", function(){
-        this.play();
-        });
-  },
+   },
 
+  fall: function(){
+      this.gravity().gravityConst(.05 + (0.1 * Math.random()));
+      this.onHit("Ledge", function(){
+          this.play();
+          this.destroy();
+      });
+  },
   remove: function (entityDestroyed) {
+    Crafty.trigger("cardDestroyed");
     // called just before this component is removed
     //  or before an entity is destroyed
   },
@@ -18,7 +22,7 @@ Crafty.c('MatchedCard', {
   // constructor
   matchedcard: function(placeholder) {
     this.placeholder = placeholder;
-
+      
     return this;
   }
 

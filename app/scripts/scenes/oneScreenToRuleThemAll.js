@@ -9,8 +9,19 @@ Crafty.scene('oneScreenToRuleThemAll', function() {
     };
 
     Crafty.bind("gameEnded", function(){
-        bigplaybad(possibleNotes);
-        Crafty.enterScene("end");
+        Crafty("MatchedCard").each(function() {
+            this.fall();
+        });
+        //Crafty.enterScene("end");
+    });
+    
+    //erk
+    delayer =  Crafty.e("Delay");
+    Crafty.bind("cardDestroyed", function(){
+        if( Crafty("Card").get().length==1){
+            delayer.delay(function(){ 
+                Crafty.enterScene("end")}, 10, 0);
+        }
     });
     
     Crafty.bind("cardSelected", function(newCard){

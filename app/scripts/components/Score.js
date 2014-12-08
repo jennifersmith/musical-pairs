@@ -6,7 +6,7 @@ Crafty.c('Score', {
     // called when this component is added to an entity
     this.requires("Model");
     this.bind("Change", function(){
-            console.log(this.get("unmatchedCards"));
+            console.log(this.unmatchedCards);
     });
   },
   increment: function(){

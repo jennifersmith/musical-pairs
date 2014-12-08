@@ -11,10 +11,13 @@ Crafty.c('MatchedCard', {
    },
 
   fall: function(){
-      this.gravity().gravityConst(.05 + (0.1 * Math.random()));
+      this.gravity().gravityConst(.025 + (0.02 * Math.random()));
       this.onHit("Ledge", function(){
           this.play();
           this.destroy();
+      });
+      this.onHit("MatchedCard", function(){
+          this.play();
       });
   },
   remove: function (entityDestroyed) {

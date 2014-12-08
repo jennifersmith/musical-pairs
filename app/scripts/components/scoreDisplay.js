@@ -1,11 +1,9 @@
-Crafty.c('Ledge', {
-
-  _placeholder: "..",
+Crafty.c('scoreDisplay', {
 
   init: function() {
     // called when this component is added to an entity
-    this.requires("2D, Canvas, Polygon,Collision");
-    this.attr({x:0, y:580, w:800, h:20});
+    this.requires("2D,Canvas,Text")
+    this.text("0");
   },
 
   remove: function (entityDestroyed) {
@@ -14,7 +12,7 @@ Crafty.c('Ledge', {
   },
 
   // constructor
-  ledge: function(placeholder) {
+  scoredisplay: function(placeholder) {
     this.placeholder = placeholder;
 
     return this;

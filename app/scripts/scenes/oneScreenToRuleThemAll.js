@@ -20,19 +20,18 @@ Crafty.scene('oneScreenToRuleThemAll', function() {
     Crafty.bind("cardDestroyed", function(){
         if( Crafty("Card").get().length==1){
             delayer.delay(function(){ 
-                Crafty.enterScene("end")}, 10, 0);
+                Crafty.enterScene("end", {score: score.selectionsMade})}, 10, 0);
         }
     });
     
     Crafty.bind("cardSelected", function(newCard){
-
+        score.increment();
         var clickedNote = newCard._note;
         var selectedCards = Crafty("SelectedCard");
         var selectedNotes = _.pluck(selectedCards.get(), "_note")[0];
         if(selectedNotes == clickedNote){
             selectedCards.each(function(){this.match()});
             newCard.match();
-            score.increment();
             updateUnmatched();
 
         } else {
@@ -43,9 +42,14 @@ Crafty.scene('oneScreenToRuleThemAll', function() {
 
     });
 
+    var scoreDisplay = Crafty.e("scoreDisplay");
+    
+    var notesContainer = Crafty.e("notesContainer");
+
+    
     var notes = _.shuffle(possibleNotes.concat(possibleNotes));
     _(8).times(function(n){
-       Crafty.e("card").card({note: notes[n]}).layoutOnGrid(n%3,Math.floor(n/3));
+        notesContainer.addNote(notes[n]);
        });
     Crafty.e("Ledge");
     score.score(8);

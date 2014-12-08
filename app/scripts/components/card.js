@@ -10,7 +10,7 @@ Crafty.c('card', {
       this.requires("2D, Canvas, Color, Polygon, Mouse, Delay, UnmatchedCard");
   },
   layoutOnGrid:function(x,y){
-      this.attr({w: this._width, h: this._height, x: (x* (this._width + this._padding)) + 50, y: (this._height + this._padding) * y});
+      this.attr({w: this._width, h: this._height, x: (x* (this._width + this._padding)) + 50, y: ((this._height + this._padding) * y) +50} );
       return this;
   },
 
